@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import lombok.Getter;
 
 /**
- * TestController
+ * TestController -> 주석 추가
  */
 @Controller
 public class TestController {
