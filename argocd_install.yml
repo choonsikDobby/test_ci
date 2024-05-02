@@ -21336,7 +21336,6 @@ metadata:
     app.kubernetes.io/part-of: argocd
   name: argocd-applicationset-controller
 spec:
-
   selector:
     matchLabels:
       app.kubernetes.io/name: argocd-applicationset-controller
@@ -21345,15 +21344,6 @@ spec:
       labels:
         app.kubernetes.io/name: argocd-applicationset-controller
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: svc
-                operator: In
-                values:
-                - gitops
       containers:
       - args:
         - /usr/local/bin/argocd-applicationset-controller
@@ -21673,15 +21663,6 @@ spec:
       labels:
         app.kubernetes.io/name: argocd-notifications-controller
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: svc
-                operator: In
-                values:
-                - gitops
       containers:
       - args:
         - /usr/local/bin/argocd-notifications
@@ -21774,7 +21755,7 @@ spec:
               - key: svc
                 operator: In
                 values:
-                - gitops
+                - gitop
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
           - podAffinityTerm:
@@ -21838,7 +21819,7 @@ spec:
               - key: svc
                 operator: In
                 values:
-                - gitops
+                - gitop
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
           - podAffinityTerm:
@@ -22147,16 +22128,16 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: argocd-server
-
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: svc
-            operator: In
-            values:
-            - gitops
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: svc
+                operator: In
+                values:
+                - gitop
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
           - podAffinityTerm:
@@ -22510,7 +22491,7 @@ spec:
               - key: svc
                 operator: In
                 values:
-                - gitops
+                - gitop
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
           - podAffinityTerm:
