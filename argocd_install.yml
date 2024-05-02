@@ -21344,6 +21344,15 @@ spec:
       labels:
         app.kubernetes.io/name: argocd-applicationset-controller
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: svc
+                operator: In
+                values:
+                - gitops
       containers:
       - args:
         - /usr/local/bin/argocd-applicationset-controller
@@ -21663,6 +21672,15 @@ spec:
       labels:
         app.kubernetes.io/name: argocd-notifications-controller
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: svc
+                operator: In
+                values:
+                - gitops
       containers:
       - args:
         - /usr/local/bin/argocd-notifications
@@ -21755,7 +21773,7 @@ spec:
               - key: svc
                 operator: In
                 values:
-                - gitop
+                - gitops
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
           - podAffinityTerm:
@@ -21819,7 +21837,7 @@ spec:
               - key: svc
                 operator: In
                 values:
-                - gitop
+                - gitops
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
           - podAffinityTerm:
@@ -22137,7 +22155,7 @@ spec:
               - key: svc
                 operator: In
                 values:
-                - gitop
+                - gitops
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
           - podAffinityTerm:
@@ -22491,7 +22509,7 @@ spec:
               - key: svc
                 operator: In
                 values:
-                - gitop
+                - gitops
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
           - podAffinityTerm:
